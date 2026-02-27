@@ -10,8 +10,6 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo Checking dependencies...
-
 if not exist node_modules (
     echo First run detected.
     echo Installing dependencies...
@@ -21,10 +19,9 @@ if not exist node_modules (
         pause
         exit /b 1
     )
-    echo Installation complete.
 )
 
-echo Starting Snake Game...
-npm run dev
+echo Launching development server...
+start "" cmd /k "cd /d %~dp0 && npm run dev"
 
-pause
+exit
